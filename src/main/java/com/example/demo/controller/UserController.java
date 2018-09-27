@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     @Autowired
     private UserRepository userRepository;
-
+    //unless 针对返回值的限制 condition是在方法执行之前的条件限制
     @Cacheable(value = "users", key = "#userId", unless = "#result.followers < 12000")
     @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
     public User getUser(@PathVariable String userId) {
