@@ -1,0 +1,1 @@
+这是一个springboot整合redis并且使用springboot-data-redis来操作reids的demo。redis运行在ubuntu中的docker上

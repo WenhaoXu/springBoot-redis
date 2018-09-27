@@ -1,0 +1,9 @@
+spring:
+  cache:
+    type: redis
+  redis:
+    host: 192.168.254.128
+    port: 6500
+server:
+  port: 8091
+
