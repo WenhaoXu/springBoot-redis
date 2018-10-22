@@ -12,6 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
+import redis.clients.jedis.JedisPool;
 
 import java.util.HashMap;
 import java.util.List;
@@ -66,6 +67,12 @@ public class DemoApplicationTests {
          * value:value1
          */
 
+    }
+//测试bean
+    @Test
+    public  void testBean(){
+       JedisPool pool= DemoApplication.ac.getBean(JedisPool.class);
+        System.out.println(pool);
     }
 
 

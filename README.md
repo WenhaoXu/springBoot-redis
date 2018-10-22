@@ -1,1 +1,4 @@
 这是一个springboot整合redis并且使用springboot-data-redis来操作reids的demo。redis运行在ubuntu中的docker上
+
+
+在该demo中，使用了缓存注解的方式来管理缓存。并且对非注解方式的也做了演示，

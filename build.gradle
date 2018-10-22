@@ -27,9 +27,12 @@ repositories {
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
     compile('org.springframework.boot:spring-boot-starter-web')
-    compile ('org.springframework.boot:spring-boot-starter-data-redis')
+    compile ('org.springframework.boot:spring-boot-starter-data-redis') {
+        exclude group :'redis.clients'
+        exclude group: 'io.lettuce'
+    }
     runtime('com.h2database:h2')
-    compileOnly "org.springframework.boot:spring-boot-configuration-processor"
+//    compileOnly "org.springframework.boot:spring-boot-configuration-processor"
 
     compile group: 'redis.clients', name: 'jedis', version: '2.9.0'
     compile group: 'com.alibaba', name: 'fastjson', version: '1.2.47'

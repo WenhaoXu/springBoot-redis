@@ -27,19 +27,21 @@ import redis.clients.jedis.JedisPoolConfig;
 
 @Configuration
 @EnableCaching
+
 public class RedisConfig extends JCacheConfigurerSupport {
 
     private static final Logger logger = LoggerFactory.getLogger(RedisConfig.class);
     @Autowired
     private JedisConnectionFactory jedisConnectionFactory;
-    @Value("${spring.redis.host}")
-    private String host;
-    @Value("${spring.redis.password}")
-    private String password;
-    @Value("${spring.redis.port}")
-    private int port;
 
-    @Value("${spring.redis.jedis.pool.max-idle}")
+    @Value("${spring.redis.host}")
+    public String host;
+    @Value("${spring.redis.password}")
+    public String password;
+    @Value("${spring.redis.port}")
+    public int port;
+
+    @Value("${spring.redis.lettuce.pool.max-idle}")
     private int maxIdle;
     @Bean
     @Override
@@ -82,6 +84,9 @@ public class RedisConfig extends JCacheConfigurerSupport {
         redisTemplate.setHashKeySerializer(serializer);
         redisTemplate.setHashValueSerializer(jackson2JsonRedisSerializer);
         redisTemplate.afterPropertiesSet();
+
+
+
         return redisTemplate;
     }
 

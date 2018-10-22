@@ -7,15 +7,16 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
 @EnableCaching
 public class DemoApplication implements CommandLineRunner{
     @Autowired
     private  UserRepository userRepository;
-
+    public static ConfigurableApplicationContext ac;
     public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
+        DemoApplication.ac=  SpringApplication.run(DemoApplication.class, args);
     }
 
     @Override
